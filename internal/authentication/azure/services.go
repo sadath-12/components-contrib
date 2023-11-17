@@ -22,6 +22,8 @@ const (
 	ServiceAzureSQL cloud.ServiceName = "dapr.io/azuresql"
 	// Service configuration for OSS RDBMS (Azure Database for PostgreSQL and MySQL). Namespaced with dapr.io
 	ServiceOSSRDBMS cloud.ServiceName = "dapr.io/oss-rdbms"
+	
+	ServiceAzureRedis cloud.ServiceName = "dapr.io/azureredis"
 )
 
 func init() {
@@ -33,6 +35,15 @@ func init() {
 		Audience: "https://database.usgovcloudapi.net",
 	}
 	cloud.AzurePublic.Services[ServiceAzureSQL] = cloud.ServiceConfiguration{
+		Audience: "https://database.windows.net",
+	}
+	cloud.AzureChina.Services[ServiceAzureRedis] = cloud.ServiceConfiguration{
+		Audience: "https://database.chinacloudapi.cn",
+	}
+	cloud.AzureGovernment.Services[ServiceAzureRedis] = cloud.ServiceConfiguration{
+		Audience: "https://database.usgovcloudapi.net",
+	}
+	cloud.AzurePublic.Services[ServiceAzureRedis] = cloud.ServiceConfiguration{
 		Audience: "https://database.windows.net",
 	}
 	cloud.AzureChina.Services[ServiceOSSRDBMS] = cloud.ServiceConfiguration{
